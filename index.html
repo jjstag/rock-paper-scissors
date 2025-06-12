@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 1. make a function called getComputerChoice that gets the computer's choice of rock, paper, or scissors.
+        function getComputerChoice() {
+            const rpsChoices = ["Rock", "Paper", "Scissors"]
+            const computerChoice = rpsChoices[Math.floor(Math.random() * 3)]
+            return computerChoice
+        }
+        // 2. make a funtion called getHumanChoice that will return rock, paper, or scissors depending on what the user inputs.
+        // 3. create two new variables named humanScore and computerScore that will keep track of score.
+        // 4. create a new function named playRound that will take the 2 inputs and then increment the score accoding to the winner.
+        // 5. make the game 5 rounds.
+
+
+        // let rockCounter = 0
+        // let paperCounter = 0
+        // let scissorsCounter = 0
+        // let help = 0
+        // for (let i = 0; i <= 100; i++) {
+        //     computerChoice = getComputerChoice()
+        //     if (computerChoice == "Rock") {
+        //         rockCounter++
+        //     } else if (computerChoice == "Paper") {
+        //         paperCounter++
+        //     } else if (computerChoice == "Scissors") {
+        //         scissorsCounter++
+        //     } else {
+        //         help++
+        //     }
+        //     if (i == 100) {
+        //         console.log(computerChoice)
+        //         console.log(rockCounter + " " + paperCounter + " " + scissorsCounter + " " + help)
+        //     }
+        // }
+    </script>
+
+</body>
+</html>
