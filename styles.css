@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 18px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0px;
 }
@@ -18,7 +18,7 @@ body {
 }
 
 body > * {
-    flex-grow: 1;
+    flex: 1 1 0;
     width: 100%;
 }
 
@@ -30,23 +30,35 @@ body > * {
 }
 
 #rpsButtons > * {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     background-color: #9f5508;
     color: #eecebd;
     border-radius: 30px;
 }
 
 #humanScore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #884022;
     color: #eecebd;
+    font-size: 80px;
 }
 #computerScore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #8f5508;
     color: #eecebd;
+    font-size: 80px;
 }
 
 #winner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #9f5508;
-    color:#eecebd
+    color:#eecebd;
+    font-size: 30px;
 }
