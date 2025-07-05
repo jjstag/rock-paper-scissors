@@ -4,68 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    
+    <div id="rpsButtons">
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
+    </div>
+    <div id="results">
+        <p id="humanScore">0</p>
+        <p id="computerScore">0</p>
+    </div>
+    <p id="winner"></p>
     <script>
-        // 1. make a function called getComputerChoice that gets the computer's choice of rock, paper, or scissors.
-        // getComputerChoice = () => computerChoice = Math.floor(Math.random() * 3)
+
+        const rpsButtons = document.querySelector("#rpsButtons")
+        const results = document.querySelector("#results")
+        const DOMhumanScore = results.querySelector("#humanScore")
+        const DOMcomputerScore = results.querySelector("#computerScore")
+        const winner = document.querySelector("#winner")
+       
+        let humanScore = 0
+        let computerScore = 0
+        
+        function playRound(computerChoice, humanChoice) {
+            if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
+                winner.textContent = "Paper beats rock. You lose."
+                computerScore++
+            } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
+                winner.textContent = "Rock beats scissors. You win!"
+                humanScore++
+            } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
+                winner.textContent = "Paper beats rock. You win!"
+                humanScore++
+            } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
+                winner.textContent = "Scissors beats paper. You lose."
+                computerScore++
+            } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
+                winner.textContent = "Rock beats scissors. You lose."
+                computerScore++
+            } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
+                winner.textContent = "Scissors beats paper. You win!"
+                humanScore++
+            } else if (humanChoice.toLowerCase() == computerChoice) {
+                winner.textContent = "You both chose " + humanChoice + "!"
+            } else {
+                winner.textContent = "eror hewp"
+                console.log("ewow pwease hewp uwu")
+            }
+            DOMhumanScore.textContent = humanScore
+            DOMcomputerScore.textContent = computerScore
+        }
+
         function getComputerChoice() {
             let choices = ["rock", "paper", "scissors"]
             let chosenChoice = choices[Math.floor(Math.random() * 3)]
             return chosenChoice
         }
-        // 2. make a funtion called getHumanChoice that will return rock, paper, or scissors depending on what the user inputs.
-        function getHumanChoice() {
-            let humanChoice = prompt("Rock, paper, or scissors?")
-            return humanChoice
-        }
-        // 3. create two new variables named humanScore and computerScore that will keep track of score.
-        let humanScore = 0
-        let computerScore = 0
-        // 4. create a new function named playRound that will take the 2 inputs and then increment the score accoding to the winner.
-        function playRound(computerChoice, humanChoice) {
-            if (humanChoice.toLowerCase() == "rock" && computerChoice == "paper") {
-                console.log("Paper beats rock. You lose.")
-                computerScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == "rock" && computerChoice == "scissors") {
-                console.log("Rock beats scissors. You win!")
-                humanScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "rock") {
-                console.log("Paper beats rock. You win!")
-                humanScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == "paper" && computerChoice == "scissors") {
-                console.log("Scissors beats paper. You lose.")
-                computerScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "rock") {
-                console.log("Rock beats scissors. You lose.")
-                computerScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == "scissors" && computerChoice == "paper") {
-                console.log("Scissors beats paper. You win!")
-                humanScore++
-                console.log("HumanScore: " + humanScore + "\nComputerScore: " + computerScore)
-            } else if (humanChoice.toLowerCase() == computerChoice) {
-                console.log("You both chose " + humanChoice + "!")
-            } else {
-                console.log("eror hewp")
+        
+        let i = 0
+        
+        rpsButtons.addEventListener("click", function(e) {
+            let humanChoice = e.target.id
+            playRound(getComputerChoice(), humanChoice)
+            i++
+            
+            if (i === 5) {
+                setTimeout(() => {
+                    if (humanScore > computerScore) {
+                        winner.textContent = "You win!"
+                    } else if (humanScore < computerScore) {
+                        winner.textContent = "Computer wins."
+                    } else {
+                        winner.textContent = "It's a tie!"
+                    }
+                }, 1500)
             }
-        }
-        // 5. make the game 5 rounds.
-        for (let i = 0; i < 5; i++) {
-            playRound(getComputerChoice(), getHumanChoice())
-        }
-        if (humanScore > computerScore) {
-            console.log("You win!")
-        } else if (humanScore < computerScore) {
-            console.log("Computer wins.")
-        } else {
-            console.log("It's a tie!")
-        }
+        })
+
     </script>
 
 </body>
