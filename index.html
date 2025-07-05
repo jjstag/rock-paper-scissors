@@ -12,17 +12,14 @@
         <button id="Paper">Paper</button>
         <button id="Scissors">Scissors</button>
     </div>
-    <div id="results">
-        <p id="humanScore">0</p>
-        <p id="computerScore">0</p>
-    </div>
+    <p id="humanScore">0</p>
+    <p id="computerScore">0</p>
     <p id="winner"></p>
     <script>
 
         const rpsButtons = document.querySelector("#rpsButtons")
-        const results = document.querySelector("#results")
-        const DOMhumanScore = results.querySelector("#humanScore")
-        const DOMcomputerScore = results.querySelector("#computerScore")
+        const DOMhumanScore = document.querySelector("#humanScore")
+        const DOMcomputerScore = document.querySelector("#computerScore")
         const winner = document.querySelector("#winner")
        
         let humanScore = 0
