@@ -50,7 +50,6 @@
             } else if (humanChoice.toLowerCase() == computerChoice) {
                 winner.textContent = "You both chose " + humanChoice + "!"
             } else {
-                winner.textContent = "eror hewp"
                 console.log("ewow pwease hewp uwu")
             }
             DOMhumanScore.textContent = humanScore
@@ -65,12 +64,15 @@
         
         let i = 0
         
-        rpsButtons.addEventListener("click", function(e) {
+        function playGame(e) {
+            if (e.target.tagName !== 'BUTTON') return;
+
             let humanChoice = e.target.id
             playRound(getComputerChoice(), humanChoice)
             i++
             
             if (i === 5) {
+                rpsButtons.removeEventListener("click", playGame)
                 setTimeout(() => {
                     if (humanScore > computerScore) {
                         winner.textContent = "You win!"
@@ -79,9 +81,11 @@
                     } else {
                         winner.textContent = "It's a tie!"
                     }
-                }, 1500)
+                }, 2000)
             }
-        })
+        }
+
+        rpsButtons.addEventListener("click", playGame)
 
     </script>
 
