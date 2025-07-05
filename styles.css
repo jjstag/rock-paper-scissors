@@ -35,6 +35,7 @@ body > * {
     background-color: #9f5508;
     color: #eecebd;
     border-radius: 30px;
+    border: none;
 }
 
 #humanScore {
